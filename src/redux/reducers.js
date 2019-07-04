@@ -1,28 +1,38 @@
 import {combineReducers} from 'redux';
-import {INPUT, CLEAR_INPUT, FETCH_JOBS} from './types';
+import {INPUT, CLEAR_INPUT, FETCH_JOBS, QUERIED_JOBS} from './types';
 
-// reminder: to check if should be [] or {} 
-const defaultState = [];
+// note: can't map {}
+// const defaultState = {};
+const defaultState ={
+    message:"",
+    jobData:[],
+    totalResults:"",
+    totalPages:"",
+};
 
 // anything to do with input 
 const inputReducer = (state = "", action) =>{
     switch(action.type){
         case INPUT:
+            console.log('action.value in INPUT', action.value)
             return action.value
-        case CLEAR_INPUT:
-            return "";
+        // case CLEAR_INPUT:
+        //     console.log('action.value in CLEAR_INPUT', action.value)
+        //     return "";
         default:
             return state;
     }
 }
 
 // anything to do with jobs 
-// for now naming the reducer as fetchJobsReducer because currently only have fetchjob function that I can think of...
 const fetchJobsReducer = (state = defaultState, action) =>{
     switch(action.type){
         case FETCH_JOBS:
-            console.log('action.data', action.data)
-            return 
+        case QUERIED_JOBS:
+            const payload = action.data
+            // console.log('action.data', action.data)
+            // console.log("asdas", {...defaultState, message:payload.message,jobData:payload.data.jobs,totalResults:payload.data.total_num, totalPages:payload.data.total_pages })
+            return {...defaultState, message:payload.message,jobData:payload.data.jobs,totalResults:payload.data.total_num, totalPages:payload.data.total_pages }
         default:
             return state
     }
@@ -30,7 +40,7 @@ const fetchJobsReducer = (state = defaultState, action) =>{
 
 const rootReducer = combineReducers({
     input: inputReducer,
-    fetchJobs: fetchJobsReducer,
+    jobs: fetchJobsReducer,
 })
 
 export default rootReducer;

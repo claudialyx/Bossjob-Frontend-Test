@@ -1,7 +1,6 @@
-import {INPUT, CLEAR_INPUT, FETCH_JOBS } from '../redux/types'
+import {INPUT, CLEAR_INPUT, FETCH_JOBS, QUERIED_JOBS } from '../redux/types'
 
 
-// to store input state
 export const input = (value) => {
     return {
         type: INPUT,
@@ -9,7 +8,7 @@ export const input = (value) => {
     }
 }
 
-// to clear input fields
+
 export const clearInput = () =>{
     return {
         type: CLEAR_INPUT
@@ -25,15 +24,33 @@ export const clearInput = () =>{
 // the upside of manually dispatching is that we can dispatch as many actions as we want even tho it's in 1 action creator.
 
 
-// to fetch job list from API
+// to fetch full job list from API (without querying)
 export const fetchJobs =(searchQuery)=>dispatch=>{
     // hardcoded the number of jobs to be retrieved to be 12 
-    fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=${searchQuery}`)
+    fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=${searchQuery? searchQuery : "system"}`)
+    // fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=system`)
         .then(response => response.json())
-        .then(data=>console.log('fetchJobs data', data))
-        // .then(data => dispatch({
-        //     type: FETCH_JOBS,
-        //     data
-        // })
-        // );
+        // .then(data=>console.log('fetchJobs data', data))
+        .then(data => dispatch({
+            type: FETCH_JOBS,
+            data
+        }))
+        .catch(error=>{
+            console.log("error fetching job list:", error)
+        });
 }
+
+// to fetch queried jobs
+// export const fetchQueriedJobs = (searchQuery)=>dispatch=>{
+//     // hardcoded the number of jobs to be retrieved to be 12 
+//     fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=${searchQuery}`)
+//         .then(response => response.json())
+//         // .then(data=>console.log('fetchJobs data', data))
+//         .then(data => dispatch({
+//             type: QUERIED_JOBS,
+//             data
+//         }))
+//         .catch(error=>{
+//             console.log("error fetching job list:", error)
+//         });
+// }
