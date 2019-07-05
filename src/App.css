@@ -109,3 +109,25 @@ using CSS grid instead of flexbox for job card because layout seems pretty 2D */
   width:15px;
   height:15px;
 }
+
+/* pagination links */
+
+/* unvisited link */
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: #136FD3;
+}
+
+/* selected link */
+a:active {
+  color: #136FD3;
+}

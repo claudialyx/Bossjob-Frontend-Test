@@ -11,7 +11,7 @@ class JobListingContainer extends React.Component {
     }
 
     render() {
-        console.log('this.props.jobs', this.props.jobs)
+        // console.log('this.props.jobs', this.props.jobs)
         const displayJobCards = this.props.jobs.jobData.map((data, index) => {
             return (
                 <JobCard data={data} key={index} />
@@ -20,7 +20,7 @@ class JobListingContainer extends React.Component {
         return (
             <div className="job-listing-container">
                 <div style={{ paddingTop: "1em", paddingBottom: "1em", borderBottom: "1px solid lightgray" }}>
-                    <p style={{ fontWeight: "bold", margin: 0 }}>
+                    <p style={{ fontWeight: "bold", margin: 0, fontSize: "13px" }}>
                         {this.props.jobs.totalResults} jobs found
                     </p>
                 </div>

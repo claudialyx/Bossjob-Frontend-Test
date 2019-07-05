@@ -14,6 +14,7 @@ export const store = createStore(
     )
 )
 
-store.subscribe(() => {
-    console.log('store', store.getState());
-});
+// console.log to check states in the store
+// store.subscribe(() => {
+//     console.log('store', store.getState());
+// });

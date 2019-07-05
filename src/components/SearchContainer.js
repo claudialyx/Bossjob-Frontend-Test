@@ -26,7 +26,6 @@ class SearchContainer extends React.Component {
     }
 
     render() {
-        console.log('this.props.input', this.props.input)
         return (
             <div className="search-container" style={{ background: "#f9f9f9", padding: '10px 20px' }}>
                 <div className="search-container-title">

@@ -14,7 +14,6 @@ const defaultState = {
 const inputReducer = (state = "", action) => {
     switch (action.type) {
         case INPUT:
-            console.log('action.value in INPUT', action.value)
             return action.value
         default:
             return state;
@@ -26,9 +25,8 @@ const fetchJobsReducer = (state = defaultState, action) => {
     switch (action.type) {
         case FETCH_JOBS:
             const payload = action.data
-            console.log('payload', payload)
-            // console.log('action.data', action.data)
-            // console.log("asdas", {...defaultState, message:payload.message,jobData:payload.data.jobs,totalResults:payload.data.total_num, totalPages:payload.data.total_pages })
+            // console.log('payload', payload)
+            // console.log("return", {...defaultState, message:payload.message,jobData:payload.data.jobs,totalResults:payload.data.total_num, totalPages:payload.data.total_pages })
             return { ...defaultState, message: payload.message, jobData: payload.data.jobs, totalResults: payload.data.total_num, totalPages: payload.data.total_pages }
         default:
             return state
