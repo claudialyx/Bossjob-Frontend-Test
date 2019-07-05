@@ -1,18 +1,18 @@
-import {combineReducers} from 'redux';
-import {INPUT, CLEAR_INPUT, FETCH_JOBS, QUERIED_JOBS} from './types';
+import { combineReducers } from 'redux';
+import { INPUT, CLEAR_INPUT, FETCH_JOBS, QUERIED_JOBS } from './types';
 
 // note: can't map {}
 // const defaultState = {};
-const defaultState ={
-    message:"",
-    jobData:[],
-    totalResults:"",
-    totalPages:"",
+const defaultState = {
+    message: "",
+    jobData: [],
+    totalResults: "",
+    totalPages: "",
 };
 
 // anything to do with input 
-const inputReducer = (state = "", action) =>{
-    switch(action.type){
+const inputReducer = (state = "", action) => {
+    switch (action.type) {
         case INPUT:
             console.log('action.value in INPUT', action.value)
             return action.value
@@ -25,14 +25,15 @@ const inputReducer = (state = "", action) =>{
 }
 
 // anything to do with jobs 
-const fetchJobsReducer = (state = defaultState, action) =>{
-    switch(action.type){
+const fetchJobsReducer = (state = defaultState, action) => {
+    switch (action.type) {
         case FETCH_JOBS:
         case QUERIED_JOBS:
             const payload = action.data
+            console.log('payload', payload)
             // console.log('action.data', action.data)
             // console.log("asdas", {...defaultState, message:payload.message,jobData:payload.data.jobs,totalResults:payload.data.total_num, totalPages:payload.data.total_pages })
-            return {...defaultState, message:payload.message,jobData:payload.data.jobs,totalResults:payload.data.total_num, totalPages:payload.data.total_pages }
+            return { ...defaultState, message: payload.message, jobData: payload.data.jobs, totalResults: payload.data.total_num, totalPages: payload.data.total_pages }
         default:
             return state
     }

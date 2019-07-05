@@ -9,3 +9,82 @@
   min-height: 700px;
 }
 
+/* using CSS grid instead of flexbox because layout seems pretty 2D */
+.job-card{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  /* grid-template-rows: 0.7fr 0.7fr 0.7fr; */
+  border-bottom:1px solid lightgray;
+  padding-top:1em;
+  padding-bottom: 1em;
+  grid-gap:1em;
+}
+
+.job-card-header{
+  display:grid;
+  grid-column:1/3;
+  grid-template-columns:2fr 1fr;
+  grid-template-areas: "title salary";
+  grid-gap:0.5em;
+}
+
+.job-title{
+  grid-area:title;
+}
+
+.job-salary-range{
+  grid-area:salary;
+}
+
+.job-card-job-details{
+  display:grid;
+  grid-column:1/2;
+  grid-template-columns:1fr 1fr;
+  grid-row:2;
+  grid-template-areas:
+  "location experience_level" 
+  "degree job_type";
+  grid-gap:0.5em;
+
+}
+
+.job-location{
+  grid-area:location;
+}
+
+/* .job-country{
+  grid-area:location;
+} */
+
+.job-type{
+  grid-area:job_type;
+}
+
+.job-degree{
+  grid-area:degree;
+}
+
+.job-xp-lvl{
+  grid-area:experience_level;
+}
+
+.job-card-company-details{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  grid-column:1/2;
+  grid-row:3;
+  grid-template-areas: "logo name"
+}
+
+.job-company-logo{
+  grid-area:logo;
+}
+
+.job-company-name{
+  grid-area:name;
+}
+
+.job-created-at{
+  grid-column:2;
+  grid-row:3;
+}

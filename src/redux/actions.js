@@ -1,4 +1,4 @@
-import {INPUT, CLEAR_INPUT, FETCH_JOBS, QUERIED_JOBS } from '../redux/types'
+import { INPUT, CLEAR_INPUT, FETCH_JOBS, QUERIED_JOBS } from '../redux/types'
 
 
 export const input = (value) => {
@@ -9,7 +9,7 @@ export const input = (value) => {
 }
 
 
-export const clearInput = () =>{
+export const clearInput = () => {
     return {
         type: CLEAR_INPUT
     }
@@ -25,17 +25,17 @@ export const clearInput = () =>{
 
 
 // to fetch full job list from API (without querying)
-export const fetchJobs =(searchQuery)=>dispatch=>{
+export const fetchJobs = (searchQuery) => dispatch => {
     // hardcoded the number of jobs to be retrieved to be 12 
-    fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=${searchQuery? searchQuery : "system"}`)
-    // fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=system`)
+    fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=${searchQuery ? searchQuery : "system"}`)
+        // fetch(`https://search.bossjob.com/api/v1/search/job_filter?size=12&query=system`)
         .then(response => response.json())
         // .then(data=>console.log('fetchJobs data', data))
         .then(data => dispatch({
             type: FETCH_JOBS,
             data
         }))
-        .catch(error=>{
+        .catch(error => {
             console.log("error fetching job list:", error)
         });
 }
