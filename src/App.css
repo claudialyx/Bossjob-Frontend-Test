@@ -50,6 +50,7 @@ using CSS grid instead of flexbox for job card because layout seems pretty 2D */
 
 .job-salary-range{
   grid-area:salary;
+  justify-self:center;
 }
 
 .job-card-job-details{
@@ -111,7 +112,6 @@ using CSS grid instead of flexbox for job card because layout seems pretty 2D */
 }
 
 /* pagination links */
-
 /* unvisited link */
 a:link {
   color: black;
