@@ -10,12 +10,10 @@ export const store = createStore(
     // compose is used whenever we want to pass multiple store enhancers to the store.
     // Store enhancers are higher order functions that add some extra functionality to the store. 
     compose(
-        applyMiddleware(...middleware),
-        // this is to enable redux dev tools
-        // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        applyMiddleware(...middleware)
     )
 )
 
 store.subscribe(() => {
-    console.log('store',store.getState());
-  });
+    console.log('store', store.getState());
+});

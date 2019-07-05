@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { INPUT, CLEAR_INPUT, FETCH_JOBS, QUERIED_JOBS } from './types';
+import { INPUT, FETCH_JOBS, } from './types';
 
 // note: can't map {}
 // const defaultState = {};
@@ -16,9 +16,6 @@ const inputReducer = (state = "", action) => {
         case INPUT:
             console.log('action.value in INPUT', action.value)
             return action.value
-        // case CLEAR_INPUT:
-        //     console.log('action.value in CLEAR_INPUT', action.value)
-        //     return "";
         default:
             return state;
     }
@@ -28,7 +25,6 @@ const inputReducer = (state = "", action) => {
 const fetchJobsReducer = (state = defaultState, action) => {
     switch (action.type) {
         case FETCH_JOBS:
-        case QUERIED_JOBS:
             const payload = action.data
             console.log('payload', payload)
             // console.log('action.data', action.data)

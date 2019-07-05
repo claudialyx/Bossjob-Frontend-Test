@@ -10,7 +10,21 @@
   min-height: 700px;
 }
 
-/* using CSS grid instead of flexbox because layout seems pretty 2D */
+/* search container */
+.search-container-title{
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.search-container-text{
+  padding-left:0.5em;
+  font-weight:bold;
+  color:grey;
+}
+
+
+/* job cards 
+using CSS grid instead of flexbox for job card because layout seems pretty 2D */
 .job-card{
   display:grid;
   grid-template-columns: 2fr 1fr;
@@ -55,10 +69,6 @@
   grid-area:location;
 }
 
-/* .job-country{
-  grid-area:location;
-} */
-
 .job-type{
   grid-area:job_type;
 }
@@ -93,4 +103,9 @@
   grid-row:3;
   justify-self:center;
   align-self:center;
+}
+
+.icons{
+  width:15px;
+  height:15px;
 }

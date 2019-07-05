@@ -9,13 +9,13 @@ const JobCard = (
             id,
             degree,
             job_title,
-            job_country,
+            // job_country,
             job_type,
             job_location,
             salary_range_from,
             salary_range_to,
             company_name,
-            company_location,
+            // company_location,
             company_logo,
             xp_lvl,
             created_at,
@@ -28,11 +28,13 @@ const JobCard = (
     }
 
     const salaryRange = () => {
-        const minSalary = parseInt(salary_range_from, 10) * 1 / 1000
-        const maxSalary = parseInt(salary_range_to, 10) * 1 / 1000
+        const minSalary = parseInt(salary_range_from, 10) / 1000
+        const maxSalary = parseInt(salary_range_to, 10) / 1000
         const currency = "₱";
         return currency + minSalary + "k - " + currency + maxSalary + "k";
     }
+
+    const textWithIcon = { paddingLeft: "0.5em" }
 
     return (
         <div className="job-card" key={id}>
@@ -42,32 +44,29 @@ const JobCard = (
             </div>
             <div className="job-card-job-details">
                 <div className="job-type">
-                    <img src="https://assets.bossjob.com/website/clock.svg" width="15" height="15" />
-                    <span style={{ paddingLeft: "0.5em" }}>{job_type}</span>
+                    <img className="icons" alt="clock-icon" src="https://assets.bossjob.com/website/clock.svg" />
+                    <span style={textWithIcon}>{job_type}</span>
                 </div>
-                {/* <div className="job-country">{job_country}</div> */}
-                {/* <div className="job-location">{job_location},{job_country}</div> */}
                 <div className="job-location">
-                    <img src="https://assets.bossjob.com/website/pin.svg" width="15" height="15" />
-                    <span style={{ paddingLeft: "0.5em" }}>{job_location}</span>
+                    <img className="icons" alt="location-icon" src="https://assets.bossjob.com/website/pin.svg" />
+                    <span style={textWithIcon}>{job_location}</span>
                 </div>
                 <div className="job-degree">
-                    <img src="https://assets.bossjob.com/website/education.svg" width="15" height="15" />
-                    <span style={{ paddingLeft: "0.5em" }}>{degree}</span>
+                    <img className="icons" alt="graduation-hat-icon" src="https://assets.bossjob.com/website/education.svg" />
+                    <span style={textWithIcon}>{degree}</span>
                 </div>
                 <div className="job-xp-lvl">
-                    <img src="https://assets.bossjob.com/website/briefcase.svg" width="15" height="15" />
-                    <span style={{ paddingLeft: "0.5em" }}>{xp_lvl}</span>
+                    <img className="icons" alt="bag-icon" src="https://assets.bossjob.com/website/briefcase.svg" />
+                    <span style={textWithIcon}>{xp_lvl}</span>
                 </div>
             </div>
             <div className="job-card-company-details">
-                {/* <div className="job-company-logo"> */}
-                <img className="job-company-logo" src={company_logo} width="50" height="50" />
-                {/* </div> */}
+                <img className="job-company-logo" alt="company-logo" src={company_logo} width="50" height="50" />
                 <div className="job-company-name">{company_name}</div>
-                {/* <div className="job-company-location">{company_location}</div> */}
             </div>
-            <div className="job-created-at"><span style={{ fontSize: "13px", color: "grey" }}>{timeFromNow()}</span></div>
+            <div className="job-created-at">
+                <span style={{ fontSize: "13px", color: "grey" }}>{timeFromNow()}</span>
+            </div>
         </div>
     )
 }

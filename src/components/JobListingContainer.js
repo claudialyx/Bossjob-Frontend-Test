@@ -10,14 +10,6 @@ class JobListingContainer extends React.Component {
         this.props.fetchJobs()
     }
 
-    // displayJobCards = ()=>{
-    //     this.props.jobs.map((data, index)=>{
-    //         return(             
-    //             <JobCard data={data} key={index}/>
-    //         )
-    //     })  
-    // }
-
     render() {
         console.log('this.props.jobs', this.props.jobs)
         const displayJobCards = this.props.jobs.jobData.map((data, index) => {
@@ -53,6 +45,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-// export default connect(mapStateToProps)(JobListingContainer)
-// export default connect(null,mapDispatchToProps)(JobListingContainer)
 export default connect(mapStateToProps, mapDispatchToProps)(JobListingContainer)
