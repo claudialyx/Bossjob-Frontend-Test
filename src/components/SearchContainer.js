@@ -31,7 +31,7 @@ class SearchContainer extends React.Component {
         return (
             <div className="search-container" style={{ background: "#f9f9f9", padding: '10px 20px' }}>
                 <div className="search-container-title" style={{ paddingBottom: "1em" }}>
-                    {/* <p>search icon here</p> */}
+                    <img src="https://assets.bossjob.com/website/Search.svg" width="15" height="15" />
                     <span>Search for job title or company name</span>
                 </div>
                 <div className="search-container-query" style={{ paddingBottom: "2em" }}>

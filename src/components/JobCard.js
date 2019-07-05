@@ -33,12 +33,24 @@ const JobCard = (
                 <div className="job-salary-range">{salary_range_from}</div>
             </div>
             <div className="job-card-job-details">
-                <div className="job-type">{job_type}</div>
+                <div className="job-type">
+                    <img src="https://assets.bossjob.com/website/clock.svg" width="15" height="15" />
+                    {job_type}
+                </div>
                 {/* <div className="job-country">{job_country}</div> */}
                 {/* <div className="job-location">{job_location},{job_country}</div> */}
-                <div className="job-location">{job_location}</div>
-                <div className="job-degree">{degree}</div>
-                <div className="job-xp-lvl">{xp_lvl}</div>
+                <div className="job-location">
+                    <img src="https://assets.bossjob.com/website/pin.svg" width="15" height="15" />
+                    {job_location}
+                </div>
+                <div className="job-degree">
+                    <img src="https://assets.bossjob.com/website/education.svg" width="15" height="15" />
+                    {degree}
+                </div>
+                <div className="job-xp-lvl">
+                    <img src="https://assets.bossjob.com/website/briefcase.svg" width="15" height="15" />
+                    {xp_lvl}
+                </div>
             </div>
             <div className="job-card-company-details">
                 <div className="job-company-logo">
