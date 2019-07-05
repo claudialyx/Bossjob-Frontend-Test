@@ -12,12 +12,9 @@ class App extends Component {
       <div className="App">
         <div className="App-Wrapper">
           <Header />
-          <div style={{padding: '10px 20px'}}>
-            <SearchContainer/>
-            <JobListingContainer/>
-            <p>
-              Please show a list of jobs as per design
-            </p>
+          <SearchContainer />
+          <div style={{ padding: '10px 20px' }}>
+            <JobListingContainer />
           </div>
         </div>
       </div>
