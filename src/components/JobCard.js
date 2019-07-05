@@ -23,14 +23,22 @@ const JobCard = (
     }
 ) => {
     // console.log('data in jobcard', data)
-    const timeFromNow = (created_at) => {
+    const timeFromNow = () => {
         return moment(created_at, "YYYY-MM-DD HH:mm:ss").fromNow()
     }
+
+    const salaryRange = () => {
+        const minSalary = parseInt(salary_range_from, 10) * 1 / 1000
+        const maxSalary = parseInt(salary_range_to, 10) * 1 / 1000
+        const currency = "₱";
+        return currency + minSalary + "k - " + currency + maxSalary + "k";
+    }
+
     return (
         <div className="job-card" key={id}>
             <div className="job-card-header">
                 <div className="job-title">{job_title}</div>
-                <div className="job-salary-range">{salary_range_from}</div>
+                <div className="job-salary-range">{salaryRange()}</div>
             </div>
             <div className="job-card-job-details">
                 <div className="job-type">
@@ -59,7 +67,7 @@ const JobCard = (
                 <div className="job-company-name">{company_name}</div>
                 {/* <div className="job-company-location">{company_location}</div> */}
             </div>
-            <div className="job-created-at">{timeFromNow(created_at)}</div>
+            <div className="job-created-at">{timeFromNow()}</div>
         </div>
     )
 }
