@@ -43,31 +43,31 @@ const JobCard = (
             <div className="job-card-job-details">
                 <div className="job-type">
                     <img src="https://assets.bossjob.com/website/clock.svg" width="15" height="15" />
-                    {job_type}
+                    <span style={{ paddingLeft: "0.5em" }}>{job_type}</span>
                 </div>
                 {/* <div className="job-country">{job_country}</div> */}
                 {/* <div className="job-location">{job_location},{job_country}</div> */}
                 <div className="job-location">
                     <img src="https://assets.bossjob.com/website/pin.svg" width="15" height="15" />
-                    {job_location}
+                    <span style={{ paddingLeft: "0.5em" }}>{job_location}</span>
                 </div>
                 <div className="job-degree">
                     <img src="https://assets.bossjob.com/website/education.svg" width="15" height="15" />
-                    {degree}
+                    <span style={{ paddingLeft: "0.5em" }}>{degree}</span>
                 </div>
                 <div className="job-xp-lvl">
                     <img src="https://assets.bossjob.com/website/briefcase.svg" width="15" height="15" />
-                    {xp_lvl}
+                    <span style={{ paddingLeft: "0.5em" }}>{xp_lvl}</span>
                 </div>
             </div>
             <div className="job-card-company-details">
-                <div className="job-company-logo">
-                    <img src={company_logo} width="50" height="50" />
-                </div>
+                {/* <div className="job-company-logo"> */}
+                <img className="job-company-logo" src={company_logo} width="50" height="50" />
+                {/* </div> */}
                 <div className="job-company-name">{company_name}</div>
                 {/* <div className="job-company-location">{company_location}</div> */}
             </div>
-            <div className="job-created-at">{timeFromNow()}</div>
+            <div className="job-created-at"><span style={{ fontSize: "13px", color: "grey" }}>{timeFromNow()}</span></div>
         </div>
     )
 }

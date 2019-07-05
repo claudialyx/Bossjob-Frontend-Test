@@ -27,7 +27,11 @@ class JobListingContainer extends React.Component {
         })
         return (
             <div className="job-listing-container">
-                <div style={{ paddingTop: "1em", paddingBottom: "1em", borderBottom: "1px solid lightgray" }}>{this.props.jobs.totalResults} jobs found</div>
+                <div style={{ paddingTop: "1em", paddingBottom: "1em", borderBottom: "1px solid lightgray" }}>
+                    <p style={{ fontWeight: "bold", margin: 0 }}>
+                        {this.props.jobs.totalResults} jobs found
+                    </p>
+                </div>
                 {displayJobCards}
             </div>
         )

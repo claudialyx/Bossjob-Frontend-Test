@@ -30,9 +30,9 @@ class SearchContainer extends React.Component {
         console.log('this.props.input', this.props.input)
         return (
             <div className="search-container" style={{ background: "#f9f9f9", padding: '10px 20px' }}>
-                <div className="search-container-title" style={{ paddingBottom: "1em" }}>
+                <div className="search-container-title" style={{ paddingTop: "1em", paddingBottom: "1em" }}>
                     <img src="https://assets.bossjob.com/website/Search.svg" width="15" height="15" />
-                    <span>Search for job title or company name</span>
+                    <span style={{ paddingLeft: "0.5em", fontWeight: "bold", color: "grey" }}>Search for job title or company name</span>
                 </div>
                 <div className="search-container-query" style={{ paddingBottom: "2em" }}>
                     <input type="text" name="query" value={this.props.input} onChange={this.handleChange}
@@ -41,7 +41,7 @@ class SearchContainer extends React.Component {
                 </div>
                 <div className="search-container-filter-results" style={{ paddingBottom: "2em" }}>
                     <button onClick={this.handleClick} style={{ width: "100%", height: "2.5em", backgroundColor: "#f9f9f9", border: "1px solid #136FD3", borderRadius: "30px" }}>
-                        <p style={{ color: "#136FD3", margin: 0 }}>Filter results</p>
+                        <p style={{ color: "#136FD3", margin: 0, fontWeight: "800" }}>Filter results</p>
                     </button>
                 </div>
             </div >
