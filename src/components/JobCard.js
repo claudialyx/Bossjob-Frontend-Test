@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 // destructuring object in the parameter
 const JobCard = (
@@ -22,6 +23,9 @@ const JobCard = (
     }
 ) => {
     // console.log('data in jobcard', data)
+    const timeFromNow = (created_at) => {
+        return moment(created_at, "YYYY-MM-DD HH:mm:ss").fromNow()
+    }
     return (
         <div className="job-card" key={id}>
             <div className="job-card-header">
@@ -37,13 +41,13 @@ const JobCard = (
                 <div className="job-xp-lvl">{xp_lvl}</div>
             </div>
             <div className="job-card-company-details">
-                <div classNmae="job-company-logo">
+                <div className="job-company-logo">
                     <img src={company_logo} width="50" height="50" />
                 </div>
                 <div className="job-company-name">{company_name}</div>
                 {/* <div className="job-company-location">{company_location}</div> */}
             </div>
-            <div className="job-created-at">{created_at}</div>
+            <div className="job-created-at">{timeFromNow(created_at)}</div>
         </div>
     )
 }
